@@ -197,6 +197,7 @@ CC_SOURCES += $(wildcard $(SOURCEDIR)/serializers/decoders/prev/*.c)
 CC_SOURCES += $(wildcard $(SOURCEDIR)/serializers/decoders/prev/*/*.c)
 CC_SOURCES += $(wildcard $(SOURCEDIR)/grouping/*.c)
 CC_SOURCES += $(wildcard $(SOURCEDIR)/index/*.c)
+CC_SOURCES += $(wildcard $(SOURCEDIR)/constraint/*.c)
 CC_SOURCES += $(wildcard $(SOURCEDIR)/ast/*.c)
 CC_SOURCES += $(wildcard $(SOURCEDIR)/ast/enrichment/*.c)
 CC_SOURCES += $(wildcard $(SOURCEDIR)/resultset/*.c)
@@ -212,6 +213,7 @@ CC_SOURCES += $(wildcard $(SOURCEDIR)/util/object_pool/*.c)
 CC_SOURCES += $(wildcard $(SOURCEDIR)/util/thpool/*.c)
 CC_SOURCES += $(wildcard $(SOURCEDIR)/util/range/*.c)
 CC_SOURCES += $(wildcard $(SOURCEDIR)/util/cache/*.c)
+
 
 # Convert all sources to .o files
 CC_OBJECTS = $(patsubst %.c, %.o, $(CC_SOURCES) )
