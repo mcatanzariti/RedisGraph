@@ -308,8 +308,20 @@ int Index_PendingChanges
 	return idx->pending_changes;
 }
 
+// Drop internal RediSearch index
+void Index_DropInternalIndex
+(
+	Index idx  // index to drop
+) {
+	ASSERT(idx != NULL);
+
+	if(idx->_idx) {
+		RediSearch_DropIndex(idx->_idx);
+		idx->_idx = NULL;
+	}
+}
+
 // disable index by increasing the number of pending changes
-// and re-creating the internal RediSearch index
 void Index_Disable
 (
 	Index idx  // index to disable
@@ -317,14 +329,6 @@ void Index_Disable
 	ASSERT(idx != NULL);
 
 	idx->pending_changes++;
-
-	if(idx->_idx != NULL) {
-		RediSearch_DropIndex(idx->_idx);
-		idx->_idx = NULL;
-	}
-
-	// create RediSearch index structure
-	Index_ConstructStructure(idx);
 }
 
 // try to enable index by dropping number of pending changes by 1

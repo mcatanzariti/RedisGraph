@@ -89,6 +89,12 @@ void Index_Enable
 	Index idx // index to enable
 );
 
+// Drop internal RediSearch index
+void Index_DropInternalIndex
+(
+	Index idx  // index to drop
+);
+
 // disable index by increasing the number of pending changes
 // and re-creating the internal RediSearch index
 void Index_Disable
